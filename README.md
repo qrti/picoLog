@@ -64,8 +64,8 @@ s sample            starts sampling, see also point Save Stop
 
 start sampling      to start sampling without script a battery and START button must be connected
 without script      see schematic for details, see also point Save Stop
-                    START pressed while power up     -> start sampling
-                          not pressed while power up -> USB serial for script control
+                    while power up START is pressed      ->  start sampling
+                                            not pressed  ->  USB serial for script control
 
 d dump              loads samples from Pico and writes them to a file on PC 
                     (see variable DUMPFILE in python script)
@@ -75,9 +75,11 @@ v visualize         visualizes dumped data from stored file
                     (see XTICK_ and AVS variables in python script)
                     before visualizing sample and dump
                       
-r remove            deletes samples on Pico, settings on Pico and the file on PC are kept
+r remove            deletes samples on Pico
+                    settings on Pico and the file on PC are kept
 
-f format            deletes samples on Pico, settings on Pico are set to default, the file on PC is kept
+f format            deletes samples on Pico
+                    settings on Pico are set to default, the file on PC is kept
 
 a adc               shows some current readings from the ADC of Pico
 ```
