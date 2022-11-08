@@ -2,9 +2,14 @@
 ## Battery Driven Logger for Pico
 
 ```
-Compared with other micro controllers, the power consumption of a Pico RP2040 processor in sleep mode is relatively high. In sleep mode with running RTC at 3 V it is about 1.2 mA (without pin change wake up) against some uA of for example an AVR controller. Despite that, dependent on the sample interval, two or three alkaline batteries (~2.800 mAh) in series may endure some month. This seems sufficient to use the Pico and its ample flash for logging tasks.
+Compared with other micro controllers, the power consumption of a Pico RP2040
+processor in sleep mode is relatively high. In sleep mode with running RTC at
+3 V it is about 1.2 mA (without pin change wake up) against some uA of for
+example an AVR controller. Despite that, dependent on the sample interval,
+two or three alkaline batteries (~2.800 mAh) in series may endure some month.
+This seems sufficient to use the Pico and its ample flash for logging tasks.
 
-To handle sampling, dumping, visualization and settings, the attached python script may be useful.
+To handle sampling, dumping, visualization and settings,the attached python script may be useful.
 
 ```
 
@@ -35,12 +40,13 @@ Visualization of the voltage on a LDR-R series connection from afternoon to next
 ```
 run python script and choose
 
-1 - set date          date and time of sampling                     (default 01.01.2022 00:00:00)
-2 - set intervals     time between samples from 5 s up to 24 h      (default 15 s)
-3 - set append        ON  samples are appended to existing ones     (default OFF) 
-                      OFF old samples are discarded
+1 set date          date and time of sampling                     (default 01.01.2022 00:00:00)
+2 set intervals     time between samples from 5 s up to 24 h      (default 15 s)
+3 set append        ON  samples are appended to existing ones     (default OFF) 
+                    OFF old samples are discarded
 
-settings are stored in Pico flash, time, date, interval and number of samples are copied to the end of dump files on PC
+settings are stored in Pico flash, time, date, interval and 
+number of samples are copied to the end of dump files on PC
 ```
 
 <br>
@@ -49,29 +55,32 @@ settings are stored in Pico flash, time, date, interval and number of samples ar
 ```
 run python script and choose
 
-s - sample            starts sampling, see also point Save Stop
-                      the standard LED on Pico will flash on every sample
-                      to stop sampling press RESET on Pico
-                      samples are written to flash about every minute if interval is below one minute
-                      Pico will not respond to python script until RESET is pressed
-                      if a battery is attached to Pico, you can disconnect the USB cable after start sampling
+s sample            starts sampling, see also point Save Stop
+                    the standard LED on Pico will flash on every sample
+                    to stop sampling press RESET on Pico
+                    samples are written to flash every minute if interval is below one minute
+                    Pico will not respond to python script until RESET is pressed
+                    if a battery is attached to Pico, you can disconnect the USB cable
+                    after start sampling
 
-- start sampling      to start sampling without script a battery and a dedicated START button must be connected
-  without script      see schematic for button details, see also point Save Stop
-                      START button pressed while power up     -> start sampling
-                                   not pressed while power up -> USB serial for script control
+start sampling      to start sampling without script a battery and START button must be connected
+without script      see schematic for details, see also point Save Stop
+                    START button pressed while power up     -> start sampling
+                                 not pressed while power up -> USB serial for script control
 
-d - dump              loads samples from Pico and writes them to a file on PC (see variable DUMPFILE in python script)
-                      before dumping sample some data
+d dump              loads samples from Pico and writes them to a file on PC 
+                    (see variable DUMPFILE in python script)
+                    before dumping sample some data
 
-v - visualize         visualizes dumped data from stored file (see XTICK_ and AVS variables in python script)
-                      before visualizing sample and dump
+v visualize         visualizes dumped data from stored file 
+                    (see XTICK_ and AVS variables in python script)
+                    before visualizing sample and dump
                       
-r - remove            deletes samples on Pico, settings on Pico and the file on PC are kept
+r remove            deletes samples on Pico, settings on Pico and the file on PC are kept
 
-f - format            deletes samples on Pico, settings on Pico are set to default, the file on PC is kept
+f format            deletes samples on Pico, settings on Pico are set to default, the file on PC is kept
 
-a - adc               shows some current readings from the ADC of Pico
+a adc               shows some current readings from the ADC of Pico
 ```
 
 <br>
@@ -80,7 +89,9 @@ a - adc               shows some current readings from the ADC of Pico
 ```
 - stop sampling by pressing RESET
 - avoid invalid flash writes by pressing RESET between samples
-- the save procedure is to hold the START button then pressing RESET, then releasing first START and then RESET
+- the save procedure is 
+  hold the START button then press RESET
+  then first release START and then RESET
 ```
 
 <br>
