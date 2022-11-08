@@ -2,14 +2,13 @@
 ## Battery Driven Logger for Pico
 
 ```
-Compared with other micro controllers, the power consumption of a Pico RP2040
-processor in sleep mode is relatively high. In sleep mode with running RTC at
-3 V it is about 1.2 mA (without pin change wake up) against some uA of for
-example an AVR controller. Despite that, dependent on the sample interval,
-two or three alkaline batteries (~2.800 mAh) in series may endure some month.
-This seems sufficient to use the Pico and its ample flash for logging tasks.
+Compared with other micro controllers, the power consumption of a Pico RP2040 processor
+in sleep mode is relatively high. In sleep mode with running RTC at 3 V it is about 1.2 mA
+(without pin change wake up) against some uA for example an AVR controller. Despite that,
+dependent on the sample interval, two or three alkaline batteries (~2.800 mAh) in series may
+endure some month. This seems sufficient to use the Pico and its ample flash for logging tasks.
 
-To handle sampling, dumping, visualization and settings,the attached python script may be useful.
+To handle sampling, dumping, visualization and settings, the attached python script is useful.
 
 ```
 
@@ -45,8 +44,8 @@ run python script and choose
 3 set append        ON  samples are appended to existing ones     (default OFF) 
                     OFF old samples are discarded
 
-settings are stored in Pico flash, time, date, interval and 
-number of samples are copied to the end of dump files on PC
+settings are stored in Pico flash, time, date, interval and number of samples are copied
+to the end of dump files on PC
 ```
 
 <br>
@@ -65,8 +64,8 @@ s sample            starts sampling, see also point Save Stop
 
 start sampling      to start sampling without script a battery and START button must be connected
 without script      see schematic for details, see also point Save Stop
-                    START button pressed while power up     -> start sampling
-                                 not pressed while power up -> USB serial for script control
+                    START pressed while power up     -> start sampling
+                          not pressed while power up -> USB serial for script control
 
 d dump              loads samples from Pico and writes them to a file on PC 
                     (see variable DUMPFILE in python script)
@@ -89,7 +88,7 @@ a adc               shows some current readings from the ADC of Pico
 ```
 - stop sampling by pressing RESET
 - avoid invalid flash writes by pressing RESET between samples
-- the save procedure is 
+- save procedure
   hold the START button then press RESET
   then first release START and then RESET
 ```
