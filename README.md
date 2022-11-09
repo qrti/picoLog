@@ -98,18 +98,16 @@ a adc               shows some current readings from the ADC of Pico
 
 <br>
 
-## Links
-[-> C++ Source](source_c)  
-[-> Python Script](source_py)  
-[-> .uf2 File (compiled)](compiled)
-
-<br>
-
 ## Schematic
 <img src="images/schematic.png" width=640>
 
 <br>
 <br>
+
+## Links
+[-> C++ Source](source_c)  
+[-> Python Script](source_py)  
+[-> .uf2 File (compiled)](compiled)
 
 ### Based on and inspired by works of
 https://github.com/littlefs-project/littlefs  
