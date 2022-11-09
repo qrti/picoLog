@@ -4,9 +4,10 @@
 ```
 Compared with other micro controllers, the power consumption of a Pico RP2040 processor
 in sleep mode is relatively high. In sleep mode with running RTC at 3 V it is about 1.2 mA
-(without pin change wake up) against some uA for example an AVR controller. Despite that,
-dependent on the sample interval, two or three alkaline batteries (~2.800 mAh) in series may
-endure some month. This seems sufficient to use the Pico and its ample flash for logging tasks.
+(without pin change wake up), against some uA as for example an AVR controller consumes.
+Despite that, dependent on the sample interval, two or three alkaline batteries (~2.800 mAh)
+in series may endure some month. This seems sufficient reason to use the Pico and its ample
+flash for logging tasks.
 
 To handle sampling, dumping, visualization and settings, the attached python script is useful.
 
@@ -26,11 +27,11 @@ Visualization of the voltage on a LDR-R series connection from afternoon to next
 
 ## Preparation
 ```
-- compile and transfer C++ part of picoLog to Pico
+- plug in Pico and retrieve used COM port in device manager (windows)
+  adapt PORT variable in python script to used COM port  
+  (you may also adapt monitor_port variable in platformio.ini)  
+- compile and transfer C++ part of picoLog to Pico  
   or copy ready compiled .uf2 file via explorer (windows) to Pico
-- retrieve used com port in device manager (windows)
-  and adapt PORT variable in python script
-- to the script Pico must be plugged to PC via USB
 ```
 
 <br>
@@ -108,14 +109,21 @@ a adc               shows some current readings from the ADC of Pico
 <img src="images/schematic.png" width=640>
 
 <br>
+<br>
+
+### Based on and inspired by works of
+https://github.com/littlefs-project/littlefs  
+https://github.com/lurk101/pico-littlefs -> https://github.com/litten2up/pico-littlefs  
+https://www.heise.de/blog/Sleepy-Pico-ein-Raspberry-Pi-Pico-geht-mit-C-C-schlafen-6046517.html  
+https://ghubcoder.github.io/posts/awaking-the-pico/
 
 ### Developed and compiled with vsCode, platformIO and wizio-pico
 https://code.visualstudio.com/  
 https://platformio.org/  
-https://github.com/Wiz-IO/wizio-pico  
+https://github.com/Wiz-IO/wizio-pico
 
 <br>
 
 ---
 
-[qrt@qland.de](mailto:qrt@qland.de) 221108
+[qrt@qland.de](mailto:qrt@qland.de) 221109
