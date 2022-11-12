@@ -65,8 +65,11 @@ s sample            starts sampling, see also point Save Stop
 
 start sampling      to start sampling without script a battery and START button must be connected
 without script      see schematic for details, see also point Save Stop
-                    while power up START is pressed      ->  start sampling
-                                            not pressed  ->  USB serial for script control
+                    - start sampling
+                      while power up or after RESET is released keep START pressed until
+                      LED is blinking fast, now release START
+                    - script control with USB serial
+                      if START is not pressed while power up or after RESET                      
 
 d dump              loads samples from Pico and writes them to a file on PC 
                     (see variable DUMPFILE in python script)
@@ -93,7 +96,7 @@ a adc               shows some current readings from the ADC of Pico
 - avoid invalid flash writes by pressing RESET between samples
 - save procedure
   hold the START button then press RESET
-  then first release START and then RESET
+  then first release START and then release RESET
 ```
 
 <br>
@@ -124,4 +127,4 @@ https://github.com/Wiz-IO/wizio-pico
 
 ---
 
-[qrt@qland.de](mailto:qrt@qland.de) 221109
+[qrt@qland.de](mailto:qrt@qland.de) 221112
