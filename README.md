@@ -66,10 +66,10 @@ s sample            starts sampling, see also point Save Stop
 start sampling      to start sampling without script a battery and START button must be connected
 without script      see schematic for details, see also point Save Stop
                     - start sampling
-                      while power up or after RESET is released keep START pressed until
-                      LED is blinking fast, now release START
+                      press START during power up or RESET, after releasing RESET
+                      keep START pressed until LED is blinking fast, now release START
                     - script control with USB serial
-                      if START is not pressed while power up or after RESET                      
+                      do not press START during power up or RESET                      
 
 d dump              loads samples from Pico and writes them to a file on PC 
                     (see variable DUMPFILE in python script)
