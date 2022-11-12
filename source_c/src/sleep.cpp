@@ -42,7 +42,7 @@ static uint32_t alarm;
             .year  = (int16_t)(ymd / 10000),        // yyyymmdd -> yyyy
             .month = (int8_t)((ymd % 10000) / 100), //          -> mm
             .day   = (int8_t)(ymd % 100),           //          -> dd
-            .dotw  = -1,                            // 0..6 sunday..saturday
+            .dotw  = 0,                             // 0..6 sunday..saturday
             .hour  = (int8_t)(hms / 10000),         // hhmmss -> hh
             .min   = (int8_t)((hms % 10000) / 100), //        -> mm
             .sec   = (int8_t)(hms % 100)            //        -> ss

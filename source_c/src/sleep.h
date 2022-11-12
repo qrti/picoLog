@@ -1,8 +1,5 @@
 #pragma once
 
-// https://www.heise.de/blog/Sleepy-Pico-ein-Raspberry-Pi-Pico-geht-mit-C-C-schlafen-6046517.html
-// https://ghubcoder.github.io/posts/awaking-the-pico/
-
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "hardware/rtc.h"

@@ -1,75 +1,4 @@
-// lightLogC.cpp V0.6 221108 qrt@qland.de
-
-// the power consumption in sleep mode with running RTC at 3 V is about 1.2 mA
-// dependent on the sample interval two alkaline batteries (~2.800 mAh) may endure some month
-
-// commands
-// sample       start sampling with current settings
-//              to stop sampling see point save stop
-//
-// dump         dump saved samples
-//
-// remove       remove sampled data
-//
-// format       format pico flash
-//
-// checkADC     show current ADC value
-//
-// set_ymd      sample start date, yyyymmdd
-//
-// set_hms                         hhmmss      
-//
-// set_interval sample interval                         1..86400 seconds (1 day)
-//
-// set_append   append sampled data to existing ones    0 new data file, 1 append data to existing file
-
-// buttons
-// reset        between pico run pin (30) and ground
-//              pressed to stop sampling, preferably between samples 
-//
-// start        between start pin (-> START_PIN) and ground
-//              (a capacitor and 47 ohm resistor in series parallel to the button is advised)
-//              if pressed while power up       -> start sampling
-//              if not pressed while power up   -> USB serial for script communication 
-//              also see point save stop
-
-// LED blink codes
-// menu         constantly on
-//
-// sampling     1 short blink on every sample and same as on powerup for errors
-//
-// powerup      2 short blinks and a pause endless on FLASH_FULL_ERROR
-//              3                                     FLASH_MOUNT_ERROR
-//              4                                     FLASH_FILE_ERROR
-//              5                                     FLASH_FORMAT_ERROR  
-//
-// block        short blinks if a sample is scheduled while start button is pressed
-//              see point save stop
-
-// save stop
-// stop sampling by pressing reset
-// avoid unvalid flash writes by pressing reset between samples
-// the save procedure is to hold the start button then pressing reset, then releasing start and then reset
-
-// remarks
-// - after waking up from sleep USB serial printf does not work anymore
-//   if you need printf outputs
-//   #define QUART          1
-//   for pin configuration to a USB serial (FTDI) device see quart.h 
-// - for adc pin configuartion see sample.h
-// - to test without sleep
-//   #define USE_SLEEP      0
-
-// edited and compiled with 
-// https://code.visualstudio.com/
-// https://github.com/Wiz-IO/wizio-pico
-// https://platformio.org/
-
-// based and inspired on works of
-// https://github.com/littlefs-project/littlefs
-// https://github.com/lurk101/pico-littlefs -> https://github.com/litten2up/pico-littlefs
-// https://www.heise.de/blog/Sleepy-Pico-ein-Raspberry-Pi-Pico-geht-mit-C-C-schlafen-6046517.html
-// https://ghubcoder.github.io/posts/awaking-the-pico/
+// lightLogC.cpp V0.8 221112 qrt@qland.de
 
 #include <stdio.h>
 #include "pico/stdlib.h"
@@ -111,7 +40,7 @@ int main(void)
     gpio_set_dir(START_PIN, GPIO_IN);
     gpio_pull_up(START_PIN);
 
-    sleep_ms(3000);
+    sleep_ms(1000);
     
     uint8_t err;
 
@@ -187,7 +116,7 @@ void sample()
     while(true){
         while(gpio_get(START_PIN) == 0){        // block sampling while button is pressed
             signal(1, false);                   // blink while blocking
-            sleep_ms(250);
+            sleep_ms(100);
         }
 
         err = Sample::sample();                 // sample
