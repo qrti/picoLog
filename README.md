@@ -55,7 +55,7 @@ to the end of dump files on PC
 ```
 run python script and choose
 
-s sample            starts sampling, see also point Save Stop
+s sample            starts sampling, see also point Safe Stop
                     the standard LED on Pico will flash on every sample
                     to stop sampling press RESET on Pico
                     samples are written to flash every minute if interval is below one minute
@@ -64,7 +64,7 @@ s sample            starts sampling, see also point Save Stop
                     after start sampling
 
 start sampling      to start sampling without script a battery and START button must be connected
-without script      see schematic for details, see also point Save Stop
+without script      see schematic for details, see also point Safe Stop
                     - start sampling
                       press START during power up or RESET, after releasing RESET
                       keep START pressed until LED is blinking fast, now release START
@@ -90,11 +90,11 @@ a adc               shows some current readings from the ADC of Pico
 
 <br>
 
-## Save Stop
+## Safe Stop
 ```
 - stop sampling by pressing RESET
 - avoid invalid flash writes by pressing RESET between samples
-- save procedure
+- safe procedure
   hold the START button then press RESET
   then first release START and then release RESET
 ```
